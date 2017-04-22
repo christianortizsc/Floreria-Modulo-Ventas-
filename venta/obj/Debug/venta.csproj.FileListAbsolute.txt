@@ -1,0 +1,9 @@
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\bin\Debug\venta.exe.config
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\bin\Debug\venta.exe
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\bin\Debug\venta.pdb
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.csprojResolveAssemblyReference.cache
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.Form1.resources
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.Properties.Resources.resources
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.csproj.GenerateResource.Cache
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.exe
+c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.pdb
