@@ -59,6 +59,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.cmb_Clientes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.cantSpn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +80,7 @@
             this.nomClitxt.Name = "nomClitxt";
             this.nomClitxt.Size = new System.Drawing.Size(312, 20);
             this.nomClitxt.TabIndex = 1;
+            this.nomClitxt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.nomClitxt_KeyUp);
             // 
             // nomEnvtxt
             // 
@@ -335,11 +337,21 @@
             this.label11.TabIndex = 26;
             this.label11.Text = "$";
             // 
+            // cmb_Clientes
+            // 
+            this.cmb_Clientes.FormattingEnabled = true;
+            this.cmb_Clientes.Location = new System.Drawing.Point(439, 13);
+            this.cmb_Clientes.Name = "cmb_Clientes";
+            this.cmb_Clientes.Size = new System.Drawing.Size(370, 21);
+            this.cmb_Clientes.TabIndex = 27;
+            this.cmb_Clientes.SelectionChangeCommitted += new System.EventHandler(this.cmb_Clientes_SelectionChangeCommitted);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(821, 577);
+            this.Controls.Add(this.cmb_Clientes);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.tottxt);
@@ -408,6 +420,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmb_Clientes;
     }
 }
 

@@ -16,8 +16,8 @@ namespace venta
             DateTime now = DateTime.Now;
             using (SqlConnection Conn = BDComun.obtenerConexion())
             {
-                SqlCommand Comando = new SqlCommand(string.Format("Insert into venta (nombre_envio, hora_envio, direccion_envio, fecha_venta, credito, factura, precio_total, observaciones) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
-                    pVenta.NombreEnvio, pVenta.HoraEnvio, pVenta.DireccionEnvio, now, pVenta.Credito, pVenta.Factura, pVenta.PrecioTotal, pVenta.Observaciones), Conn);
+                SqlCommand Comando = new SqlCommand(string.Format("Insert into venta (nombre_envio, hora_envio, direccion_envio, fecha_venta, credito, factura, precio_total, observaciones, id_cliente) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')",
+                    pVenta.NombreEnvio, pVenta.HoraEnvio, pVenta.DireccionEnvio, now, pVenta.Credito, pVenta.Factura, pVenta.PrecioTotal, pVenta.Observaciones, pVenta.Id_cliente), Conn);
 
                 retorno = Comando.ExecuteNonQuery();
             }

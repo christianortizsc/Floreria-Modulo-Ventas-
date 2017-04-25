@@ -18,6 +18,7 @@ namespace venta
        public Int32 Credito { get; set; }
        public Int32 Factura { get; set; }
        public String PrecioTotal { get; set; }
+       public Int32 Id_cliente { get; set; }
 
 
         public Venta() { }

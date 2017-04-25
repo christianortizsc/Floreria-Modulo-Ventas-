@@ -13,10 +13,59 @@ namespace venta
 {
     public partial class Form1 : Form
     {
+        frmRegistrarCliente f;
         public Form1()
         {
+            f = null;
             InitializeComponent();
-            combo1();
+            try
+            {
+                combo1();
+                llenarClienteCombo();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void llenarClienteCombo()
+        {
+            try
+            {
+                Dictionary<int, string> cmbSource = new Dictionary<int, string>();
+                if (this.nomClitxt.Text != "")
+                {
+                    using (SqlConnection conexion = BDComun.obtenerConexion())
+                    {
+                        string querytext = "select * from cliente where (nombre_cliente LIKE @NameSearch);";
+                        SqlCommand query = new SqlCommand(querytext, conexion);
+                        query.Parameters.Add(new SqlParameter("NameSearch", "%" + this.nomClitxt.Text + "%"));
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(query);
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        conexion.Close();
+                        adapter.Dispose();
+                        cmb_Clientes.DataSource = null;
+                        cmb_Clientes.Items.Clear();
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            cmbSource.Add(Convert.ToInt32(row["id_cliente"].ToString()), row["nombre_cliente"].ToString());
+                        }
+                    }
+                }
+                cmbSource.Add(-1, "<Agregar nuevo cliente>");
+                cmb_Clientes.DataSource = new BindingSource(cmbSource, null);
+                cmb_Clientes.DisplayMember = "Value";
+                cmb_Clientes.ValueMember = "Key";
+                cmb_Clientes.SelectedIndex = 0;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void combo1()
@@ -36,7 +85,6 @@ namespace venta
                 conexion.Close();
                 
             }
-
         }
 
         
@@ -68,6 +116,7 @@ namespace venta
         private void button2_Click(object sender, EventArgs e)
         {
             Venta Venta = new Venta();
+            Venta.Id_cliente = ((KeyValuePair<int, string>)this.cmb_Clientes.SelectedItem).Key;
             Venta.NombreEnvio = nomEnvtxt.Text;
             Venta.DireccionEnvio = dirEnvtxt.Text;
             Venta.HoraEnvio = hrEnvtxt.Text;
@@ -93,7 +142,6 @@ namespace venta
             {
                 Venta.Factura = 0;
             }
-
             int resultado = VentaDAL.Agregar(Venta);
             if (resultado > 0)
             {
@@ -184,12 +232,6 @@ namespace venta
                 DetalleVenta.IdVenta = Convert.ToInt32(getIndex());
                 int resultado = DetalleVentaDAL.Agregar(DetalleVenta);
             }
-            
-
-
-            
-            
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -208,6 +250,30 @@ namespace venta
                     resta = resta.Substring(1);
                     tottxt.Text = Convert.ToString(Convert.ToDouble(tottxt.Text) - Convert.ToDouble(resta));
                     dataGridView1.Rows.Remove(row);
+                }
+            }
+        }
+
+        private void nomClitxt_KeyUp(object sender, KeyEventArgs e)
+        {
+            llenarClienteCombo();
+        }
+
+        private void cmb_Clientes_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmb_Clientes.SelectedIndex == cmb_Clientes.Items.Count - 1)
+            {
+                if (f == null)
+                {
+                    f = new frmRegistrarCliente();
+                    f.ShowDialog(this);
+                }
+                else
+                {
+                    f.Dispose();
+                    f = null;
+                    f = new frmRegistrarCliente();
+                    f.ShowDialog(this);
                 }
             }
         }
