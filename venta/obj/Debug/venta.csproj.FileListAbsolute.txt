@@ -7,3 +7,13 @@ c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta
 c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.csproj.GenerateResource.Cache
 c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.exe
 c:\users\chris\documents\visual studio 2015\Projects\venta\venta\obj\Debug\venta.pdb
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\bin\Debug\venta.exe.config
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.exe
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.pdb
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\bin\Debug\venta.exe
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\bin\Debug\venta.pdb
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.csprojResolveAssemblyReference.cache
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.Form1.resources
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.frmRegistrarCliente.resources
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.Properties.Resources.resources
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.csproj.GenerateResource.Cache

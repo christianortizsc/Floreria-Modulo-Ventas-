@@ -19,12 +19,6 @@ namespace venta
             this.Credito = 0;
         }
 
-        public Cliente(int ID, string Nombre)
-        {
-            this.ID = ID;
-            this.Nombre = Nombre;
-        }
-
         public Cliente(int ID, string Nombre, int Credito, string RFC, string Telefono, string Direccion)
         {
             this.ID = ID;
@@ -41,10 +35,9 @@ namespace venta
             {
                 using(SqlConnection Conn = BDComun.obtenerConexion())
                 {
-                    this.getID(Conn);
                     this.checkIfRegistered(Conn);
-                    string querytext = "INSERT INTO CLIENTE(id_cliente, nombre_cliente, direccion_cliente, rfc, telefono_cliente) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}');";
-                    SqlCommand query = new SqlCommand(string.Format(querytext, this.ID, this.Nombre, this.Direccion, this.RFC, this.Telefono));
+                    string querytext = "INSERT INTO CLIENTE(nombre_cliente, direccion_cliente, rfc, telefono_cliente) VALUES ('{0}', '{1}', '{2}', '{3}');";
+                    SqlCommand query = new SqlCommand(string.Format(querytext, this.Nombre, this.Direccion, this.RFC, this.Telefono));
                     query.Connection = Conn;
                     query.ExecuteNonQuery();
                     Conn.Close();
@@ -79,25 +72,6 @@ namespace venta
             if(Convert.ToInt32(result) != 0)
             {
                 throw new Exception("El cliente ya esta registrado en la base de datos.");
-            }
-        }
-
-        private void getID(SqlConnection conn)
-        {
-            string querytext = "SELECT MAX(id_cliente) AS 'MAXID' FROM CLIENTE;";
-            SqlCommand query = new SqlCommand(querytext);
-            query.Connection = conn;
-            var dataset = new DataSet();
-            SqlDataAdapter adapter = new SqlDataAdapter(query);
-            adapter.Fill(dataset);
-            string result = dataset.Tables[0].Rows[0]["MAXID"].ToString();
-            if(result == "")
-            {
-                this.ID = 1;
-            }
-            else
-            {
-                this.ID = Convert.ToInt32(result) + 1;
             }
         }
     }

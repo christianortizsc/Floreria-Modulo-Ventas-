@@ -41,6 +41,14 @@ CREATE TABLE venta (
 	FOREIGN KEY (id_evento) REFERENCES evento(id_evento)
 );
 
+CREATE TABLE cliente (
+	id_cliente int IDENTITY(1,1) PRIMARY KEY,
+	nombre_cliente varchar(50) NOT NULL,
+	direccion_cliente varchar(50) NOT NULL,
+	rfc varchar(13) NOT NULL,
+	telefono_cliente varchar(15) NOT NULL,
+);
+
 
 insert into producto (id_producto,descripcion,tipo,stock,precio) values ('1','rosa',0,0,25.50)
 insert into producto (id_producto,descripcion,tipo,stock,precio) values ('2','tulipan',0,0,18.43)
