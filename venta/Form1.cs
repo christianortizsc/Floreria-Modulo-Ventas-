@@ -36,23 +36,26 @@ namespace venta
                 Dictionary<int, string> cmbSource = new Dictionary<int, string>();
                 if (this.nomClitxt.Text != "")
                 {
-                    using (SqlConnection conexion = BDComun.obtenerConexion())
+                    if (this.nomClitxt.Text.Trim().Length >= 3)
                     {
-                        string querytext = "select * from cliente where (nombre_cliente LIKE @NameSearch);";
-                        SqlCommand query = new SqlCommand(querytext, conexion);
-                        query.Parameters.Add(new SqlParameter("NameSearch", "%" + this.nomClitxt.Text + "%"));
-
-                        SqlDataAdapter adapter = new SqlDataAdapter(query);
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-                        conexion.Close();
-                        adapter.Dispose();
-                        cmb_Clientes.DataSource = null;
-                        cmb_Clientes.Items.Clear();
-
-                        foreach (DataRow row in dt.Rows)
+                        using (SqlConnection conexion = BDComun.obtenerConexion())
                         {
-                            cmbSource.Add(Convert.ToInt32(row["id_cliente"].ToString()), row["nombre_cliente"].ToString());
+                            string querytext = "select * from cliente where (nombre_cliente LIKE @NameSearch);";
+                            SqlCommand query = new SqlCommand(querytext, conexion);
+                            query.Parameters.Add(new SqlParameter("NameSearch", "%" + this.nomClitxt.Text + "%"));
+
+                            SqlDataAdapter adapter = new SqlDataAdapter(query);
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            conexion.Close();
+                            adapter.Dispose();
+                            cmb_Clientes.DataSource = null;
+                            cmb_Clientes.Items.Clear();
+
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                cmbSource.Add(Convert.ToInt32(row["id_cliente"].ToString()), row["nombre_cliente"].ToString());
+                            }
                         }
                     }
                 }
