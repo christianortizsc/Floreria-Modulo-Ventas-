@@ -131,6 +131,7 @@ namespace venta
             if (crechb.Checked)
             {
                 Venta.Credito = 1;
+                insertarCredito(Venta.Id_cliente, "21/05/2017",Venta.PrecioTotal);
             }
             else
             {
@@ -155,6 +156,27 @@ namespace venta
                 MessageBox.Show("No se guardaron los datos", " Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             insertDetalle();
+        }
+
+        public void insertarCredito(int idCliente,string fecha,string importe)
+        {
+            using (SqlConnection Conn = BDComun.obtenerConexion())
+            {
+                SqlCommand cm = new SqlCommand(string.Format("Insert into cuentas_por_cobrar(id_cliente,fecha,importe) values ('{0}', '{1}', '{2}')",
+                    idCliente, fecha, importe), Conn);
+
+                cm.ExecuteNonQuery();
+
+
+                try
+                {
+                    
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("error");
+                }
+            }
         }
 
         string[,] arrDetVen = new string[100,5];
@@ -279,6 +301,11 @@ namespace venta
                     f.ShowDialog(this);
                 }
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
