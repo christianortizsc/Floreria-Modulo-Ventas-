@@ -18,3 +18,34 @@ C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\ve
 C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.Properties.Resources.resources
 C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.csproj.GenerateResource.Cache
 C:\Users\chris\Documents\Visual Studio 2015\Projects\venta\venta\obj\Debug\venta.frmRegistrarCliente.resources
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\venta.exe.config
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.exe
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.pdb
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.csprojResolveAssemblyReference.cache
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.Busqueda_Venta.resources
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.Form1.resources
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.frmRegistrarCliente.resources
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.Properties.Resources.resources
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.csproj.GenerateResource.Cache
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\venta.exe
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\venta.pdb
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\FlashControlV71.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\bin\Debug\stdole.dll
+C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.facturacion.resources

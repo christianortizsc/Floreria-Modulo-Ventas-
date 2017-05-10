@@ -62,6 +62,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cmb_Clientes = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cantSpn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -204,6 +205,7 @@
             this.button1.TabIndex = 14;
             this.button1.Text = "Evento";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -376,6 +378,20 @@
             this.label12.TabIndex = 28;
             this.label12.Text = "Ventas";
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DarkOrchid;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(186, 464);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 26);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Busqueda";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,6 +399,7 @@
             this.BackColor = System.Drawing.Color.LightBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(836, 502);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cmb_Clientes);
             this.Controls.Add(this.label11);
@@ -455,6 +472,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmb_Clientes;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button5;
     }
 }
 

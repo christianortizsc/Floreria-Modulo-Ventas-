@@ -307,5 +307,16 @@ namespace venta
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Busqueda_Venta busque = new Busqueda_Venta();
+            busque.Show();
+        }
     }
 }
