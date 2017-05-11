@@ -156,6 +156,41 @@ namespace venta
                 MessageBox.Show("No se guardaron los datos", " Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             insertDetalle();
+            restarStock();
+            clearAll();
+
+        }
+
+        public void restarStock()
+        {
+            using (SqlConnection Conn = BDComun.obtenerConexion())
+            {
+                
+               
+
+                for (int i = 0; i <= dataGridView1.Rows.Count - 2; i++)
+                {
+
+
+                    int idProducto = Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value);
+                    int cantP = Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value);
+                    int newStock = arrStock[i, 0]-cantP;
+                    SqlCommand cm = new SqlCommand(string.Format("UPDATE producto SET stock='{0}' WHERE id_producto = '{1}'; ",
+                        newStock, idProducto), Conn);
+
+                    cm.ExecuteNonQuery();
+                }
+
+
+                try
+                {
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("error");
+                }
+            }
         }
 
         public void insertarCredito(int idCliente,string fecha,string importe)
@@ -179,19 +214,37 @@ namespace venta
             }
         }
 
-        string[,] arrDetVen = new string[100,5];
+        public void clearAll()
+        {
+            nomClitxt.Text = "";
+            tottxt.Text = "0.0";
+            cantSpn.Value = 0;
+            crechb.Checked = false;
+            facchb.Checked = false;
+            nomEnvtxt.Text = "";
+            dirEnvtxt.Text = "";
+            hrEnvtxt.Text = "";
+            observacionestxt.Text = "";
+            dataGridView1.Rows.Clear();
+            productocmb.SelectedIndex = -1;
+            cmb_Clientes.SelectedIndex = -1;
+        }
+
+        int[,] arrStock = new int[100,1];
+        int contP = 0;
         private void button3_Click(object sender, EventArgs e)
         {
             string paramBus = Convert.ToString(productocmb.SelectedItem);
             using (SqlConnection conexion = BDComun.obtenerConexion())
             {
                 SqlCommand comando = new SqlCommand(string.Format(
-                   "Select descripcion,id_producto,precio from producto where descripcion='{0}' ", paramBus),  conexion);
+                   "Select descripcion,id_producto,precio,stock from producto where descripcion='{0}' ", paramBus),  conexion);
 
 
                 SqlDataReader reader = comando.ExecuteReader();
 
                 double total=0.0;
+
 
                 while (reader.Read())
                 {
@@ -202,10 +255,26 @@ namespace venta
                     total = Convert.ToDouble(cantSpn.Value) * Convert.ToDouble(reader.GetDecimal(2));
                     dataGridView1.Rows[contP].Cells[4].Value = Convert.ToString(total);
                     contP++;*/
-                    total = Convert.ToDouble(cantSpn.Value) * Convert.ToDouble(reader.GetDecimal(2));
-                    dataGridView1.Rows.Add(Convert.ToString(reader.GetInt32(1)), reader.GetString(0),"$"+ Convert.ToString(reader.GetDecimal(2)), Convert.ToString(cantSpn.Value), "$"+Convert.ToString(total));
-                    cantSpn.Value=0;
-                    tottxt.Text = Convert.ToString(Convert.ToDouble(tottxt.Text)+total);
+
+                    int stock = reader.GetInt32(3);
+                    if (stock == 0)
+                    {
+                        MessageBox.Show("No hay producto en existencia.");
+                    }
+                    else if (stock < cantSpn.Value)
+                    {
+                        MessageBox.Show("La cantidad solicitada es mayor al stock en existencia. Stock actual: "+Convert.ToString(stock)+".");
+                    }
+                    else
+                    {
+                        contP++;
+                        arrStock[dataGridView1.Rows.Count-1, 0] = stock;
+                        total = Convert.ToDouble(cantSpn.Value) * Convert.ToDouble(reader.GetDecimal(2));
+                        dataGridView1.Rows.Add(Convert.ToString(reader.GetInt32(1)), reader.GetString(0), "$" + Convert.ToString(reader.GetDecimal(2)), Convert.ToString(cantSpn.Value), "$" + Convert.ToString(total));
+                        cantSpn.Value = 0;
+                        tottxt.Text = Convert.ToString(Convert.ToDouble(tottxt.Text) + total);                     
+                    }
+                    
                     
                 }
                 conexion.Close();
@@ -237,11 +306,7 @@ namespace venta
 
         public void insertDetalle()
         {
-            arrDetVen[0, 0] = "Rosa";
-            arrDetVen[0, 1] = "3";
-            arrDetVen[0, 2] = "75,50";
-            arrDetVen[0, 3] = "1";
-            arrDetVen[0, 4] = "1";
+           
             
             
             for (int i = 0; i <= dataGridView1.Rows.Count-2; i++)
@@ -271,6 +336,11 @@ namespace venta
             {
                 if (!row.IsNewRow)
                 {
+                    for (int i = row.Index; i < contP-1; i++)
+                    {
+                        arrStock[i, 0] = arrStock[i + 1, 0];
+                    }
+                    contP--;
                     string resta = Convert.ToString(row.Cells[4].Value);
                     resta = resta.Substring(1);
                     tottxt.Text = Convert.ToString(Convert.ToDouble(tottxt.Text) - Convert.ToDouble(resta));

@@ -28,7 +28,8 @@ namespace venta
         {
                 InitializeComponent();
             
-                string Connect = "Data Source=.; Initial Catalog=floreria; Integrated Security=True";
+                //string Connect = "Data Source=.; Initial Catalog=floreria; Integrated Security=True";
+                string Connect = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=floreria; Integrated Security=True"; 
                 string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.id_cliente from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente";
                 SqlConnection coneccion = new SqlConnection(Connect);
                 SqlDataAdapter DataAdap = new SqlDataAdapter(sql, coneccion);
@@ -87,7 +88,7 @@ namespace venta
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre del cleinte";
+            this.label1.Text = "Nombre del cliente";
             // 
             // ID_Venta
             // 
