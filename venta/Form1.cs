@@ -76,7 +76,7 @@ namespace venta
             using (SqlConnection conexion = BDComun.obtenerConexion())
             {
                 SqlCommand comando = new SqlCommand(string.Format(
-                   "Select descripcion from producto "), conexion);
+                   "Select descripcion from producto where tipo=0"), conexion);
                 
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -380,7 +380,8 @@ namespace venta
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            frmEvento ev = new frmEvento();
+            ev.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
