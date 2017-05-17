@@ -14,8 +14,10 @@ namespace venta
 {
     public partial class frmEvento : Form
     {
+        frmRegistrarCliente f;
         public frmEvento()
         {
+            f = null;
             InitializeComponent();
             // Cargo los datos que tendra el combobox
             combo();
@@ -25,6 +27,14 @@ namespace venta
             comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
             comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
             dateTimePicker1.MinDate = DateTime.Now;
+            try
+            {
+                llenarClienteCombo();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void llenarClienteCombo()
@@ -69,6 +79,24 @@ namespace venta
             }
         }
 
+        private void cmb_Clientes_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmb_Clientes.SelectedIndex == cmb_Clientes.Items.Count - 1)
+            {
+                if (f == null)
+                {
+                    f = new frmRegistrarCliente();
+                    f.ShowDialog(this);
+                }
+                else
+                {
+                    f.Dispose();
+                    f = null;
+                    f = new frmRegistrarCliente();
+                    f.ShowDialog(this);
+                }
+            }
+        }
         private void nomClitxt_KeyUp(object sender, KeyEventArgs e)
         {
             llenarClienteCombo();

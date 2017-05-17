@@ -381,7 +381,7 @@ namespace venta
         private void button1_Click(object sender, EventArgs e)
         {
             frmEvento ev = new frmEvento();
-            ev.Show();
+            ev.ShowDialog();
         }
 
         private void button5_Click(object sender, EventArgs e)

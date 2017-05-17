@@ -13,10 +13,12 @@ namespace venta
     public partial class frmMenu : Form
     {
         Form1 ventaForm;
+        frmEvento eventoForm;
         public frmMenu()
         {
             InitializeComponent();
             ventaForm = null;
+            eventoForm = null;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,6 +39,22 @@ namespace venta
                 ventaForm = null;
                 ventaForm = new Form1();
                 ventaForm.ShowDialog(this);
+            }
+        }
+
+        private void realizarEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (eventoForm == null)
+            {
+                eventoForm = new frmEvento();
+                eventoForm.ShowDialog(this);
+            }
+            else
+            {
+                eventoForm.Dispose();
+                eventoForm = null;
+                eventoForm = new frmEvento();
+                eventoForm.ShowDialog(this);
             }
         }
     }
