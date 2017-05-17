@@ -429,6 +429,7 @@
             this.Controls.Add(this.nomClitxt);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)(this.cantSpn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
