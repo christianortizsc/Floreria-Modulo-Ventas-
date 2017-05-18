@@ -16,14 +16,14 @@ namespace venta {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class facturacion2 : ReportClass {
         
-        public CrystalReport1() {
+        public facturacion2() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "facturacion2.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace venta {
         
         public override string FullResourceName {
             get {
-                return "venta.CrystalReport1.rpt";
+                return "venta.facturacion2.rpt";
             }
             set {
                 // Do nothing
@@ -87,12 +87,20 @@ namespace venta {
                 return this.ReportDefinition.Sections[4];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_fact {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class Cachedfacturacion2 : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public Cachedfacturacion2() {
         }
         
         [Browsable(false)]
@@ -129,7 +137,7 @@ namespace venta {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            facturacion2 rpt = new facturacion2();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -29,8 +29,9 @@ namespace venta
                 InitializeComponent();
             
                 //string Connect = "Data Source=.; Initial Catalog=floreria; Integrated Security=True";
-                string Connect = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=floreria; Integrated Security=True"; 
-                string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.id_cliente from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente";
+                string Connect = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=floreria; Integrated Security=True";
+                string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, d.id_producto, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.hora_envio, v.observaciones, v.credito, v.factura, v.tipo_venta, v.tipo_arreglo, p.id_producto from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente join producto as p on p.id_producto = v.id_producto";
+                //string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.id_cliente from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente";
                 SqlConnection coneccion = new SqlConnection(Connect);
                 SqlDataAdapter DataAdap = new SqlDataAdapter(sql, coneccion);
                 DataSet ds = new DataSet();
@@ -49,7 +50,7 @@ namespace venta
                 SqlConnection conec = BDComun.obtenerConexion();
                 SqlCommand cmd = conec.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.id_cliente from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente where c.nombre_cliente like ('" + tex_Nombre.Text + "%')";
+                cmd.CommandText = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, d.id_producto, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.hora_envio, v.observaciones, v.credito, v.factura, v.tipo_venta, v.tipo_arreglo, p.id_producto from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente join producto as p on p.id_producto = v.id_producto where c.nombre_cliente like ('" + tex_Nombre.Text + "%')";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -175,12 +176,12 @@ namespace venta
             ParameterField pf = new ParameterField();
             ParameterFields pfs = new ParameterFields();
             ParameterDiscreteValue pdv = new ParameterDiscreteValue();
-            pf.Name = "@facturacion";
+            pf.Name = "@fact";
             pdv.Value = n;
             pf.CurrentValues.Add(pdv);
             pfs.Add(pf);
             factu.crystalReportViewer1.ParameterFieldInfo = pfs;
-            oRep.Load(@"C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\CrystalReport1.rpt");
+            oRep.Load(@"C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\facturacion2.rpt");
             factu.crystalReportViewer1.ReportSource = oRep;
             factu.Show();
             oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\carlo\Desktop\Facturas\factura.pdf");
@@ -190,7 +191,7 @@ namespace venta
         {
             
             DataGridViewRow mostrar = data_BusquedaVenta.Rows[e.RowIndex];
-            tex_IdVenta.Text = data_BusquedaVenta.Rows[e.RowIndex].Cells[4].Value.ToString();
+            tex_IdVenta.Text = data_BusquedaVenta.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
         private void but_seleccionar_Click(object sender, EventArgs e)

@@ -63,6 +63,11 @@
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DatosFactura.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatosFactura.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DetalleVenta.cs" />
     <Compile Include="DetalleVentaDAL.cs" />
     <Compile Include="Empleado.cs" />
@@ -73,6 +78,17 @@
     </Compile>
     <Compile Include="facturacion.Designer.cs">
       <DependentUpon>facturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="facturacion2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>facturacion2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="floreriaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>floreriaDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmEvento.cs">
       <SubType>Form</SubType>
@@ -115,6 +131,10 @@
     <EmbeddedResource Include="facturacion.resx">
       <DependentUpon>facturacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="facturacion2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>facturacion2.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +157,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DatosFactura.xsc">
+      <DependentUpon>DatosFactura.xsd</DependentUpon>
+    </None>
+    <None Include="DatosFactura.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatosFactura.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DatosFactura.xss">
+      <DependentUpon>DatosFactura.xsd</DependentUpon>
+    </None>
+    <None Include="floreriaDataSet.xsc">
+      <DependentUpon>floreriaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="floreriaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>floreriaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="floreriaDataSet.xss">
+      <DependentUpon>floreriaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
