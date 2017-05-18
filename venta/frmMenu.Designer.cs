@@ -31,8 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.realizarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,14 @@
             this.ventasToolStripMenuItem.Text = "Realizar venta";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
+            // realizarEventoToolStripMenuItem
+            // 
+            this.realizarEventoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.realizarEventoToolStripMenuItem.Name = "realizarEventoToolStripMenuItem";
+            this.realizarEventoToolStripMenuItem.Size = new System.Drawing.Size(165, 27);
+            this.realizarEventoToolStripMenuItem.Text = "Realizar evento";
+            this.realizarEventoToolStripMenuItem.Click += new System.EventHandler(this.realizarEventoToolStripMenuItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::venta.Properties.Resources.LogoZarco1;
@@ -76,14 +84,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // realizarEventoToolStripMenuItem
-            // 
-            this.realizarEventoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.realizarEventoToolStripMenuItem.Name = "realizarEventoToolStripMenuItem";
-            this.realizarEventoToolStripMenuItem.Size = new System.Drawing.Size(165, 27);
-            this.realizarEventoToolStripMenuItem.Text = "Realizar evento";
-            this.realizarEventoToolStripMenuItem.Click += new System.EventHandler(this.realizarEventoToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -98,6 +98,7 @@
             this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventas";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

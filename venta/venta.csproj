@@ -96,6 +96,12 @@
     <Compile Include="frmEvento.designer.cs">
       <DependentUpon>frmEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLugaresEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLugaresEvento.designer.cs">
+      <DependentUpon>frmLugaresEvento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEvento.resx">
       <DependentUpon>frmEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLugaresEvento.resx">
+      <DependentUpon>frmLugaresEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>

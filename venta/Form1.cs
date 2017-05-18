@@ -76,7 +76,7 @@ namespace venta
             using (SqlConnection conexion = BDComun.obtenerConexion())
             {
                 SqlCommand comando = new SqlCommand(string.Format(
-                   "Select descripcion from producto where tipo=0"), conexion);
+                   "Select descripcion from producto"), conexion);
                 
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -131,7 +131,8 @@ namespace venta
             if (crechb.Checked)
             {
                 Venta.Credito = 1;
-                insertarCredito(Venta.Id_cliente, "21/05/2017",Venta.PrecioTotal);
+                DateTime now = DateTime.Now;
+                insertarCredito(Venta.Id_cliente, now,Venta.PrecioTotal);
             }
             else
             {
@@ -193,12 +194,12 @@ namespace venta
             }
         }
 
-        public void insertarCredito(int idCliente,string fecha,string importe)
+        public void insertarCredito(int idCliente,DateTime fecha,string importe)
         {
             using (SqlConnection Conn = BDComun.obtenerConexion())
             {
-                SqlCommand cm = new SqlCommand(string.Format("Insert into cuentas_por_cobrar(id_cliente,fecha,importe) values ('{0}', '{1}', '{2}')",
-                    idCliente, fecha, importe), Conn);
+                SqlCommand cm = new SqlCommand(string.Format("Insert into cuentas_por_cobrar(id_cliente,fecha,importe,id_empleado) values ('{0}', '{1}', '{2}', '{3}')",
+                    idCliente, fecha, importe,1), Conn);
 
                 cm.ExecuteNonQuery();
 

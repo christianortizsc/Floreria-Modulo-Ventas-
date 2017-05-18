@@ -29,8 +29,8 @@ namespace venta
                 InitializeComponent();
             
                 //string Connect = "Data Source=.; Initial Catalog=floreria; Integrated Security=True";
-                string Connect = "Data Source=localhost\\SQLEXPRESS; Initial Catalog=floreria; Integrated Security=True";
-                string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, d.id_producto, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.hora_envio, v.observaciones, v.credito, v.factura, v.tipo_venta, v.tipo_arreglo, p.id_producto from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente join producto as p on p.id_producto = v.id_producto";
+                string Connect = "Data Source=.; Initial Catalog=floreria; Integrated Security=True";
+                string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, d.id_producto, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.hora_envio, v.observaciones, v.credito, v.factura, v.tipo_venta, v.tipo_arreglo, p.id_producto from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente join producto as p on p.id_producto = d.id_producto";
                 //string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.id_cliente from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente";
                 SqlConnection coneccion = new SqlConnection(Connect);
                 SqlDataAdapter DataAdap = new SqlDataAdapter(sql, coneccion);
@@ -50,7 +50,7 @@ namespace venta
                 SqlConnection conec = BDComun.obtenerConexion();
                 SqlCommand cmd = conec.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, d.id_producto, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.hora_envio, v.observaciones, v.credito, v.factura, v.tipo_venta, v.tipo_arreglo, p.id_producto from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente join producto as p on p.id_producto = v.id_producto where c.nombre_cliente like ('" + tex_Nombre.Text + "%')";
+                cmd.CommandText = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, d.id_producto, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.hora_envio, v.observaciones, v.credito, v.factura, v.tipo_venta, v.tipo_arreglo, p.id_producto from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente join producto as p on p.id_producto = d.id_producto where c.nombre_cliente like ('" + tex_Nombre.Text + "%')";
                 cmd.ExecuteNonQuery();
                 DataTable dt = new DataTable();
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -181,10 +181,10 @@ namespace venta
             pf.CurrentValues.Add(pdv);
             pfs.Add(pf);
             factu.crystalReportViewer1.ParameterFieldInfo = pfs;
-            oRep.Load(@"C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\facturacion2.rpt");
+            oRep.Load(@"C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\facturacion2.rpt");
             factu.crystalReportViewer1.ReportSource = oRep;
             factu.Show();
-            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\carlo\Desktop\Facturas\factura.pdf");
+            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\jesus\Desktop\factura.pdf");
         }
 
         private void data_BusquedaVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)

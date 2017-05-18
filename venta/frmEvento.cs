@@ -15,6 +15,7 @@ namespace venta
     public partial class frmEvento : Form
     {
         frmRegistrarCliente f;
+        
         public frmEvento()
         {
             f = null;
@@ -79,6 +80,16 @@ namespace venta
             }
         }
 
+        private void eventoCB_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == comboBox1.Items.Count - 1)
+            {
+                frmLugaresEvento le = new frmLugaresEvento();
+                le.ShowDialog(this);
+                Autocomplete();
+            }
+        }
+
         private void cmb_Clientes_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cmb_Clientes.SelectedIndex == cmb_Clientes.Items.Count - 1)
@@ -132,6 +143,7 @@ namespace venta
                 coleccion.Add(Convert.ToString(row["nombre_local"]));
                 keysColeccion.Add(Convert.ToInt32(row["id_local"]), Convert.ToString(row["nombre_local"]));
             }
+            keysColeccion.Add(-1, "<Agregar lugar de evento>");
             comboBox1.AutoCompleteCustomSource = coleccion;
             comboBox1.DataSource = new BindingSource(keysColeccion, null);
         }
@@ -227,7 +239,7 @@ namespace venta
         {
             using (SqlConnection Conn = BDComun.obtenerConexion())
             {
-                SqlCommand cm = new SqlCommand(string.Format("select descripcion from producto where tipo=1"), Conn);
+                SqlCommand cm = new SqlCommand(string.Format("select descripcion from producto"), Conn);
 
                 try
                 {
@@ -246,5 +258,6 @@ namespace venta
 
 
         }
+
     }
 }
