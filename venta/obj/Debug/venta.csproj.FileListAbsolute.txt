@@ -151,3 +151,4 @@ C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\obj\Debug\venta.
 C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\obj\Debug\venta.Properties.Resources.resources
 C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\obj\Debug\venta.csproj.GenerateResource.Cache
 C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\obj\Debug\venta.frmLugaresEvento.resources
+C:\Users\Oliver\Documents\Visual Studio 2015\Projects\Floreria-Modulo-Ventas-\venta\obj\Debug\venta.frmLugaresEvento.resources
