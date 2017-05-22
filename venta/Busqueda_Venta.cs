@@ -181,10 +181,12 @@ namespace venta
             pf.CurrentValues.Add(pdv);
             pfs.Add(pf);
             factu.crystalReportViewer1.ParameterFieldInfo = pfs;
-            oRep.Load(@"C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\facturacion2.rpt");
+            //oRep.Load(@"C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\facturacion2.rpt");
+            oRep.Load(@"C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\facturacion2.rpt");
             factu.crystalReportViewer1.ReportSource = oRep;
             factu.Show();
-            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\jesus\Desktop\factura.pdf");
+            //oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\jesus\Desktop\factura.pdf");
+            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\carlo\Desktop\Facturas\factura.pdf");
         }
 
         private void data_BusquedaVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
