@@ -118,6 +118,11 @@ namespace venta
         public Venta VentaActual { get; set; }
         private void button2_Click(object sender, EventArgs e)
         {
+            if(((KeyValuePair<int, string>)this.cmb_Clientes.SelectedItem).Key == -1)
+            {
+                MessageBox.Show("Por favor seleccione un cliente.");
+                return;
+            }
             Venta Venta = new Venta();
             Venta.Id_cliente = ((KeyValuePair<int, string>)this.cmb_Clientes.SelectedItem).Key;
             Venta.NombreEnvio = nomEnvtxt.Text;
@@ -126,13 +131,11 @@ namespace venta
             Venta.Observaciones = observacionestxt.Text;
             string ptotal = tottxt.Text;
             ptotal = ptotal.Replace(",", ".");
-            Venta.PrecioTotal = ptotal; 
+            Venta.PrecioTotal = ptotal;
 
             if (crechb.Checked)
             {
                 Venta.Credito = 1;
-                DateTime now = DateTime.Now;
-                insertarCredito(Venta.Id_cliente, now,Venta.PrecioTotal);
             }
             else
             {
@@ -155,6 +158,17 @@ namespace venta
             else
             {
                 MessageBox.Show("No se guardaron los datos", " Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            if (crechb.Checked)
+            {
+                DateTime now = DateTime.Now;
+                int idVenta = Convert.ToInt32(getIndex());
+                insertarCredito(Venta.Id_cliente, now, Venta.PrecioTotal,idVenta);
+            }
+            else
+            {
+                Venta.Credito = 0;
             }
             insertDetalle();
             restarStock();
@@ -194,12 +208,12 @@ namespace venta
             }
         }
 
-        public void insertarCredito(int idCliente,DateTime fecha,string importe)
+        public void insertarCredito(int idCliente,DateTime fecha,string importe,int idVenta)
         {
             using (SqlConnection Conn = BDComun.obtenerConexion())
             {
-                SqlCommand cm = new SqlCommand(string.Format("Insert into cuentas_por_cobrar(id_cliente,fecha,importe,id_empleado) values ('{0}', '{1}', '{2}', '{3}')",
-                    idCliente, fecha, importe,1), Conn);
+                SqlCommand cm = new SqlCommand(string.Format("Insert into cuentas_por_cobrar(id_cliente,fecha,importe,id_venta,id_empleado) values ('{0}', '{1}', '{2}', '{3}', '{4}')",
+                    idCliente, fecha, importe,idVenta, 1), Conn);
 
                 cm.ExecuteNonQuery();
 
