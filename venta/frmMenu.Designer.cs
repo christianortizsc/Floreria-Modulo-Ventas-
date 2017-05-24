@@ -32,8 +32,10 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.registrarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.registrarClienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +79,16 @@
             this.realizarEventoToolStripMenuItem.Text = "Realizar evento";
             this.realizarEventoToolStripMenuItem.Click += new System.EventHandler(this.realizarEventoToolStripMenuItem_Click);
             // 
+            // registrarClienteToolStripMenuItem
+            // 
+            this.registrarClienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarClienteToolStripMenuItem1,
+            this.editarClientesToolStripMenuItem});
+            this.registrarClienteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.registrarClienteToolStripMenuItem.Name = "registrarClienteToolStripMenuItem";
+            this.registrarClienteToolStripMenuItem.Size = new System.Drawing.Size(170, 27);
+            this.registrarClienteToolStripMenuItem.Text = "Registrar cliente";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::venta.Properties.Resources.LogoZarco1;
@@ -87,13 +99,19 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // registrarClienteToolStripMenuItem
+            // registrarClienteToolStripMenuItem1
             // 
-            this.registrarClienteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.registrarClienteToolStripMenuItem.Name = "registrarClienteToolStripMenuItem";
-            this.registrarClienteToolStripMenuItem.Size = new System.Drawing.Size(170, 27);
-            this.registrarClienteToolStripMenuItem.Text = "Registrar cliente";
-            this.registrarClienteToolStripMenuItem.Click += new System.EventHandler(this.registrarClienteToolStripMenuItem_Click);
+            this.registrarClienteToolStripMenuItem1.Name = "registrarClienteToolStripMenuItem1";
+            this.registrarClienteToolStripMenuItem1.Size = new System.Drawing.Size(228, 28);
+            this.registrarClienteToolStripMenuItem1.Text = "Registrar cliente";
+            this.registrarClienteToolStripMenuItem1.Click += new System.EventHandler(this.registrarClienteToolStripMenuItem1_Click);
+            // 
+            // editarClientesToolStripMenuItem
+            // 
+            this.editarClientesToolStripMenuItem.Name = "editarClientesToolStripMenuItem";
+            this.editarClientesToolStripMenuItem.Size = new System.Drawing.Size(228, 28);
+            this.editarClientesToolStripMenuItem.Text = "Editar clientes";
+            this.editarClientesToolStripMenuItem.Click += new System.EventHandler(this.editarClientesToolStripMenuItem_Click);
             // 
             // frmMenu
             // 
@@ -126,5 +144,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem realizarEventoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registrarClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarClienteToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editarClientesToolStripMenuItem;
     }
 }

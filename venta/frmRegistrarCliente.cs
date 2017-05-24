@@ -31,7 +31,7 @@ namespace venta
                     c.Nombre = txt_NombreCliente.Text;
                     if(c.Nombre.Any(char.IsDigit)) throw new Exception("El nombre ingresado no es válido.");
                     c.RFC = txt_RFC.Text.ToUpper();
-                    if (c.RFC.Length != 13) throw new Exception("El RFC ingresado no es válido.");
+                    if (c.RFC.Length < 12 && c.RFC.Length > 13) throw new Exception("El RFC ingresado no es válido.");
                     c.Telefono = txt_Telefono.Text;
                     if(c.Telefono.Length != 14) throw new Exception("El número telefónico ingresado no es válido.");
                     c.Direccion = txt_Direccion.Text;

@@ -90,6 +90,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>floreriaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarCliente.Designer.cs">
+      <DependentUpon>frmEditarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarCliente.resx">
+      <DependentUpon>frmEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEvento.resx">
       <DependentUpon>frmEvento.cs</DependentUpon>

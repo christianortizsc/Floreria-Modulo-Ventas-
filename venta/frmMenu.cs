@@ -15,6 +15,8 @@ namespace venta
         Form1 ventaForm;
         frmEvento eventoForm;
         frmRegistrarCliente clienteForm;
+        frmEditarCliente editarForm;
+
         public frmMenu()
         {
             InitializeComponent();
@@ -59,7 +61,23 @@ namespace venta
             }
         }
 
-        private void registrarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (editarForm == null)
+            {
+                editarForm = new frmEditarCliente();
+                editarForm.ShowDialog(this);
+            }
+            else
+            {
+                editarForm.Dispose();
+                editarForm = null;
+                editarForm = new frmEditarCliente();
+                editarForm.ShowDialog(this);
+            }
+        }
+
+        private void registrarClienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (clienteForm == null)
             {
