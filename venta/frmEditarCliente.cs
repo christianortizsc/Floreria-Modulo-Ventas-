@@ -13,11 +13,11 @@ namespace venta
 {
     public partial class frmEditarCliente : Form
     {
-        List<DataGridViewRow> clientesEditados;
+        List<Cliente> clientesEditados;
         public frmEditarCliente()
         {
             InitializeComponent();
-            clientesEditados = new List<DataGridViewRow>();
+            clientesEditados = new List<Cliente>();
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
@@ -39,6 +39,7 @@ namespace venta
                     conexion.Close();
                     adapter.Dispose();
                 }
+                clientesEditados.Clear();
             }
             catch(Exception err)
             {
@@ -72,15 +73,17 @@ namespace venta
 
         private void grid_Clientes_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {//registrar los registros que se han cambiado en un arreglo
-            if (!clientesEditados.Contains(this.grid_Clientes.CurrentRow))
-            {//no repetir registros
-                clientesEditados.Add(this.grid_Clientes.CurrentRow);
+            clientesEditados.Add(new Cliente(Convert.ToInt32(this.grid_Clientes.CurrentRow.Cells["id_cliente"].Value.ToString()), this.grid_Clientes.CurrentRow.Cells["nombre_cliente"].Value.ToString(), 0, this.grid_Clientes.CurrentRow.Cells["rfc"].Value.ToString(), this.grid_Clientes.CurrentRow.Cells["telefono_cliente"].Value.ToString(), this.grid_Clientes.CurrentRow.Cells["direccion_cliente"].Value.ToString()));
+            for (int i = 0; i < clientesEditados.Count; i++)
+            {
+                Console.Write("id:" + clientesEditados[i].ID + ", ");
             }
+            Console.WriteLine();
         }
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
-            var confirmacion = MessageBox.Show("¿Esta seguro que desea guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            var confirmacion = MessageBox.Show("¿Esta seguro de que desea guardar los cambios?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (confirmacion == DialogResult.No) return;
             try
             {
@@ -89,13 +92,13 @@ namespace venta
                     string querytext;
                     for (int i = 0; i < clientesEditados.Count; i++)
                     {
-                        querytext = "update cliente set nombre_cliente = @Name, direccion_cliente = @Address, rfc = @RFC, telefono_cliente = @Phone where id_cliente = " + clientesEditados[i].Cells["id_cliente"].Value.ToString() + ";";
+                        querytext = "update cliente set nombre_cliente = @Name, direccion_cliente = @Address, rfc = @RFC, telefono_cliente = @Phone where id_cliente = " + clientesEditados[i].ID + ";";
                         SqlCommand query = new SqlCommand(querytext, conexion);
                         //consulta parametrizada
-                        query.Parameters.Add(new SqlParameter("Name", clientesEditados[i].Cells["nombre_cliente"].Value.ToString()));
-                        query.Parameters.Add(new SqlParameter("Address", clientesEditados[i].Cells["direccion_cliente"].Value.ToString()));
-                        query.Parameters.Add(new SqlParameter("RFC", clientesEditados[i].Cells["rfc"].Value.ToString()));
-                        query.Parameters.Add(new SqlParameter("Phone", clientesEditados[i].Cells["telefono_cliente"].Value.ToString()));
+                        query.Parameters.Add(new SqlParameter("Name", clientesEditados[i].Nombre));
+                        query.Parameters.Add(new SqlParameter("Address", clientesEditados[i].Direccion));
+                        query.Parameters.Add(new SqlParameter("RFC", clientesEditados[i].RFC));
+                        query.Parameters.Add(new SqlParameter("Phone", clientesEditados[i].Telefono));
                         //Console.WriteLine(querytext);
                         query.ExecuteNonQuery();
                         query.Dispose();
@@ -109,6 +112,11 @@ namespace venta
             {
                 MessageBox.Show(err.Message);
             }
+        }
+
+        private void btn_Cerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
