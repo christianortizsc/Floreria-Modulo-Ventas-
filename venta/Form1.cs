@@ -212,8 +212,8 @@ namespace venta
         {
             using (SqlConnection Conn = BDComun.obtenerConexion())
             {
-                SqlCommand cm = new SqlCommand(string.Format("Insert into cuentas_por_cobrar(id_cliente,fecha,importe,id_venta,id_empleado) values ('{0}', '{1}', '{2}', '{3}', '{4}')",
-                    idCliente, fecha, importe,idVenta, 1), Conn);
+                SqlCommand cm = new SqlCommand(string.Format("Insert into cuentas_por_cobrar(id_cliente,fecha,importe,id_venta) values ('{0}', '{1}', '{2}', '{3}')",
+                    idCliente, fecha, importe,idVenta), Conn);
 
                 cm.ExecuteNonQuery();
 
@@ -321,9 +321,6 @@ namespace venta
 
         public void insertDetalle()
         {
-           
-            
-            
             for (int i = 0; i <= dataGridView1.Rows.Count-2; i++)
             {
                 DetalleVenta DetalleVenta = new DetalleVenta();

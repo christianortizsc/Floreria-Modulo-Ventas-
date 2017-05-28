@@ -56,7 +56,7 @@ namespace venta
             info[0] = now.ToString();               //fecha_venta
             info[1] = venta.Observaciones;          //observaciones
             info[2] = venta.PrecioTotal.ToString(); //precio_total
-            info[3] = "0";                          //crédito
+            info[3] = "1";                          //crédito
             info[4] = "0";                          //factura
             info[5] = null;                         //tipo_venta
             info[6] = null;                         //tipo_arreglo
