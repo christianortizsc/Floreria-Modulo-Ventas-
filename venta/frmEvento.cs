@@ -231,7 +231,11 @@ namespace venta
                 MessageBox.Show("Verifique que el nombre del local esté bien escrito", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            if (totalAcum == 0)
+            {
+                MessageBox.Show("Agrege un producto para realizar la venta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Evento evento = new Evento();
             evento.id_local = ((KeyValuePair<int, string>)comboBox1.SelectedItem).Key;
             evento.Observaciones = descripcionTB.Text;
@@ -270,10 +274,23 @@ namespace venta
             else
             {
                 MessageBox.Show("No se guardaron los datos", " Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
+            clearAll();
         }
-
+        public void clearAll()
+        {
+            nomClitxt.Text = "";
+            maskedTextBox1.Text = "$0";
+            cmb_Clientes.SelectedIndex = -1;
+            comboBox1.SelectedIndex = 0;
+            eventoCB.SelectedIndex = -1;
+            cantSpn.Value = 1;
+            dateTimePicker1.MinDate = DateTime.Now;
+            descripcionTB.Text = "";
+            dataGridView2.Rows.Clear();
+            textBox1.Text = "";
+            totalTextBox = 0;
+        }
         public void combo()
         {
             using (SqlConnection Conn = BDComun.obtenerConexion())
@@ -371,7 +388,15 @@ namespace venta
         {
             if (textBox1.Text != "")
             {
-                resta = Convert.ToDecimal(textBox1.Text);
+                if (textBox1.Text == ".")
+                {
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    resta = Convert.ToDecimal(textBox1.Text);
+                }
+                
             }
             else
             {

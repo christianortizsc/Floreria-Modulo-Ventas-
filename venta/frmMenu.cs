@@ -50,14 +50,14 @@ namespace venta
             if (eventoForm == null)
             {
                 eventoForm = new frmEvento();
-                eventoForm.ShowDialog(this);
+                eventoForm.Show();
             }
             else
             {
                 eventoForm.Dispose();
                 eventoForm = null;
                 eventoForm = new frmEvento();
-                eventoForm.ShowDialog(this);
+                eventoForm.Show();
             }
         }
 
