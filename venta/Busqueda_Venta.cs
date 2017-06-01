@@ -182,11 +182,16 @@ namespace venta
             pfs.Add(pf);
             factu.crystalReportViewer1.ParameterFieldInfo = pfs;
             //oRep.Load(@"C:\Users\jesus\Source\Repos\Floreria-Modulo-Ventas-latest\venta\facturacion2.rpt");
-            oRep.Load(@"C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\facturacion2.rpt");
+            //oRep.Load(@"C:\Users\carlo\Documents\Floreria-Modulo-Ventas-\venta\facturacion2.rpt");
+            oRep.Load(Environment.CurrentDirectory+@"\..\..\facturacion2.rpt");//ruta "relativa"
             factu.crystalReportViewer1.ReportSource = oRep;
             factu.Show();
+            
+            //No hay necesidad de exportarlo justo cuando se muestra, pues en ReportViewer puedes imprimirlo o importarlo
+            //por lo que el código de abajo no se ocupa.
+
             //oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\jesus\Desktop\factura.pdf");
-            oRep.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\carlo\Desktop\Facturas\factura.pdf");
+            //oRep.ExportToDisk(ExportFormatType.PortableDocFormat, Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\Desktop\Facturas\factura.pdf"));
         }
 
         private void data_BusquedaVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
