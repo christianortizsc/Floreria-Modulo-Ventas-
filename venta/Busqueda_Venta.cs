@@ -28,14 +28,14 @@ namespace venta
         {
                 InitializeComponent();
             
+                //SqlConnection Connect = BDComun.obtenerConexion();
                 //string Connect = "Data Source=.; Initial Catalog=floreria; Integrated Security=True";
-                string Connect = "Data Source=.; Initial Catalog=floreria; Integrated Security=True";
                 string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, d.id_producto, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.hora_envio, v.observaciones, v.credito, v.factura, v.tipo_venta, v.tipo_arreglo, p.id_producto from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente join producto as p on p.id_producto = d.id_producto";
                 //string sql = "select c.nombre_cliente, d.cantidad, d.nombre, d.precio_total, v.id_venta, v.fecha_venta, v.nombre_envio, v.direccion_envio, v.id_cliente from detalle_venta as d join venta as v on d.id_venta = v.id_venta join cliente as c on c.id_cliente = v.id_cliente";
-                SqlConnection coneccion = new SqlConnection(Connect);
+                SqlConnection coneccion = BDComun.obtenerConexion();
                 SqlDataAdapter DataAdap = new SqlDataAdapter(sql, coneccion);
                 DataSet ds = new DataSet();
-                coneccion.Open();
+                //coneccion.Open();
                 DataAdap.Fill(ds, "detalle_table");
                 coneccion.Close();
                 data_BusquedaVenta.DataSource = ds;
@@ -62,6 +62,7 @@ namespace venta
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Busqueda_Venta));
             this.data_BusquedaVenta = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.ID_Venta = new System.Windows.Forms.Label();
@@ -154,6 +155,7 @@ namespace venta
             this.Controls.Add(this.ID_Venta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.data_BusquedaVenta);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Busqueda_Venta";
             this.Text = "Busqueda ventas";
             ((System.ComponentModel.ISupportInitialize)(this.data_BusquedaVenta)).EndInit();

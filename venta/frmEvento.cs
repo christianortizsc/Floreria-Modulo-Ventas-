@@ -236,6 +236,11 @@ namespace venta
                 MessageBox.Show("Agrege un producto para realizar la venta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (totalTextBox < 0)
+            {
+                MessageBox.Show("El total no puede ser menor a 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Evento evento = new Evento();
             evento.id_local = ((KeyValuePair<int, string>)comboBox1.SelectedItem).Key;
             evento.Observaciones = descripcionTB.Text;

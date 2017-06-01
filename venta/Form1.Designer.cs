@@ -413,8 +413,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nomClitxt);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)(this.cantSpn)).EndInit();

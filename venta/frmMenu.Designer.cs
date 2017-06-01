@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.realizarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.registrarClienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,18 +87,8 @@
             this.editarClientesToolStripMenuItem});
             this.registrarClienteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.registrarClienteToolStripMenuItem.Name = "registrarClienteToolStripMenuItem";
-            this.registrarClienteToolStripMenuItem.Size = new System.Drawing.Size(170, 27);
-            this.registrarClienteToolStripMenuItem.Text = "Registrar cliente";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::venta.Properties.Resources.LogoZarco1;
-            this.pictureBox1.Location = new System.Drawing.Point(124, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(355, 272);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.registrarClienteToolStripMenuItem.Size = new System.Drawing.Size(96, 27);
+            this.registrarClienteToolStripMenuItem.Text = "Clientes";
             // 
             // registrarClienteToolStripMenuItem1
             // 
@@ -113,6 +104,16 @@
             this.editarClientesToolStripMenuItem.Text = "Editar clientes";
             this.editarClientesToolStripMenuItem.Click += new System.EventHandler(this.editarClientesToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::venta.Properties.Resources.LogoZarco1;
+            this.pictureBox1.Location = new System.Drawing.Point(124, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(355, 272);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +125,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
